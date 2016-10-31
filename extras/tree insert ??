@@ -1,0 +1,55 @@
+int tree_insert(struct tree_node **p_root, struct tree_data data)
+{
+	/* Insert a piece of data into the BST with
+	 * the given root.
+	 * Return 0 if successful, -1 if it exists already, or if
+	 * there is an allocation failure.
+	 */
+
+	tree_node *temp = NULL;
+	temp = (tree_node *)malloc(sizeof(tree_node));
+	if (!temp)
+	{
+		printf("can't malloc #1, ERROR\n");
+		return -1;
+	}
+	temp -> data = data;
+        temp -> left = temp -> right = NULL;
+        //if (p_root == NULL) return -1;
+        if (!*p_root)
+	{
+		(*p_root) = temp;
+        	return 0;
+	}
+	if(strcmp(data.key,(*p_root)->data.key) == 0)
+        return 0;	
+
+	if(strcmp((*p_root)->data.key, data.key ) > 0)
+	{
+        	/*if((*p_root)->left == NULL)
+        	{
+
+        		(*p_root)->left = temp;
+        		return 0;
+        	}
+        	else*/
+        	{
+        		return tree_insert(&((*p_root)->left),data);
+        	}
+	}
+	else
+	{
+ /*       	if((*p_root)->right == NULL)
+        	{
+ 
+        		(*p_root)->right = temp;
+        		return 0;
+        	}
+        	else*/
+        	{
+        		return tree_insert(&((*p_root)->right),data);
+        	}
+	}
+	return -1;
+	
+}

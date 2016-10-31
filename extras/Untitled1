@@ -1,0 +1,49 @@
+Find_Array(int a[], int n)
+{
+    int i=0;
+     for (i,i<n,i++)
+    {
+        if (a[i] == c)
+        {
+            printf("The index for the searched number is %d",i);
+        }
+    }
+}    
+
+
+Find_Function(int a[], int n)
+{
+    int number, i=0,c,d;
+    prinf("enter the number you desire\n");
+    scanf("%d",&c);
+    for (i,i<n,i++)
+    {
+        if (a[i] == c)
+        {
+            Find_Array(a[],n);
+            return TRUE;
+        }
+    }
+    return FALSE;
+}    
+
+#define MAX 100
+
+Recursive_example (int a[],int b[],int k, int sum)
+{
+    if (k=0) 
+    {
+    return 0;
+    }
+    //else sum = a[k-1] +
+    else 
+    {
+    return a[k] = b[k] + Recursive_example(a[],b[],k-1,sum);
+    }
+}
+
+void Aladeen (int A[], int B[], int index)
+{
+    A[index] = A[index - 1] + B[index];
+    If (index = 0) return;
+    else return Aladeen(A,B,--index);
